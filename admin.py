@@ -32,7 +32,7 @@ class ad():
             You may proceed to login    """)
             # ad.login()
         else:
-            print(" Invald email")
+            print(" Invalid email")
             ad.register()
 
 # To insert details provided during registration into admin table in the database
@@ -59,6 +59,7 @@ class ad():
                     if myreg[-1] == email:
                         print("  Loading... ")
                         time.sleep(2)
+                        print("Welcome", myreg[1])
                         ad.quest()
                 except:
                     print('Login Error')
@@ -69,7 +70,8 @@ class ad():
 
 # Declearing function named quest. This enables admin to input questions for cbt
     def quest():
-        print(""" WELCOME ADMIN """)
+        print(""" You may insert question to database now """)
+        time.sleep(2)
         question = input('Enter question>> ')
         option_a = input('Enter option a>> ')
         option_b = input('Enter option b>> ')
