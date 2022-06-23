@@ -5,6 +5,7 @@
 # Importing regEX and mysql library
 import re
 import mysql.connector
+import time
 
 # Calling our database
 mycon = mysql.connector.connect(host='127.0.0.1', user='root', passwd='' , database='Project')
@@ -43,7 +44,6 @@ class ad():
 # Declearing a function named login for admin login 
     def login():
         print(" LOGIN PAGE")
-# Admin is to input his/her login details
         email = input("EMAIL>> ")
         password = input("PASSWORD>> ")
 
@@ -54,21 +54,22 @@ class ad():
                 val = (email, password)
                 mycursor.execute(query, val)
                 myreg = mycursor.fetchone()
-                print(myreg)
+                # print(myreg)
                 try:
                     if myreg[-1] == email:
+                        print("  Loading... ")
+                        time.sleep(2)
                         ad.quest()
                 except:
                     print('Login Error')
                     ad.login()
         except:
-            print('Invalid login')
+            print('Incorrect email')
             ad.login()
 
 # Declearing function named quest. This enables admin to input questions for cbt
     def quest():
         print(""" WELCOME ADMIN """)
-
         question = input('Enter question>> ')
         option_a = input('Enter option a>> ')
         option_b = input('Enter option b>> ')
